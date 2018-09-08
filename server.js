@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+const PORT = process.env.PORT || 3050;
+
 // Server routes go here... before webpack configuration stuff! Otherwise app.get('*'...) below will take precedence, since express set up depends on order in which route handlers are defined.
 app.get('/hello', (req, res) => res.send({ hi: 'there!' }))
 
@@ -22,4 +24,4 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 
-app.listen(process.env.PORT || 3050, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
